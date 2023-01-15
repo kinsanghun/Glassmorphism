@@ -1,0 +1,36 @@
+* {
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+}
+.App {
+    position : relative;
+    .background {
+        position: relative;
+        width : 100%;
+        height : 100vh;
+        transition : 0.5s;
+        &.light { background : linear-gradient(to top right, #334169, #7C5386, #C46589, #F98679, #FFBB66, #F9F871); }
+        &.dark {background : linear-gradient(to top right,#334169, #545281, #786296, #9E73AA, #C484BA, #EB95C7); }
+    }
+}
+
+header {
+    position : absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height : 50px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color : white;
+    background: rgba(0, 0, 0, 0.2);
+    filter : blur(0.5px);
+    -webkit-filter: blur(0.5px);
+    ul {
+        display: flex;
+        gap : 20px;
+        li { list-style: none; }
+    }
+}
