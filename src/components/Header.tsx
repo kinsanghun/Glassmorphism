@@ -1,9 +1,23 @@
+import { defaultContext } from "App";
+import { useContext } from "react";
+import { 
+    BsSunFill,
+    BsFillMoonFill 
+} from "react-icons/bs";
+
+
 const Header = () => {
-    const date = new Date().toISOString();
+    const context = useContext(defaultContext);
+    const date = new Date().toDateString();
+
+    const themeHandler = () => {
+        context.isDarkHandler(!context.isDark)
+    }
+
     return (
         <header>
             <ul>
-                <li>{"light"}</li>
+                <li onClick={()=>{themeHandler()}}>{context.isDark ? <BsFillMoonFill/> : <BsSunFill/>}</li>
                 <li>{date}</li>
             </ul>
         </header>
