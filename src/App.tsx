@@ -4,6 +4,7 @@ import Header from 'components/Header';
 import { Icon } from 'components/Icon';
 import { createContext, useState } from 'react';
 import 'styles/global.scss';
+import 'styles/pages.scss';
 
 import {
   BsPersonFill,
@@ -13,6 +14,9 @@ import {
 } from "react-icons/bs";
 import Introduce from 'pages/Introduce';
 import { windowType } from 'types/type';
+import Career from 'pages/Career';
+import Project from 'pages/Project';
+import Contact from 'pages/Contact';
 
 interface ContextProps {
   isDark:boolean;
@@ -25,7 +29,7 @@ export const defaultContext = createContext<ContextProps>({
 });
 
 const App = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [windowStack, setWindowStack] = useState<windowType[]>([]);
 
   const isDarkHandler = (theme:boolean) => { setIsDark(theme); }
@@ -46,21 +50,21 @@ const App = () => {
               <Icon 
                 title={"Career"} 
                 icon={<BsFillPencilFill/>} 
-                page={<Introduce/>} 
+                page={<Career/>} 
                 pid={1} 
                 windowHandler={setWindowStack}
               />
               <Icon 
                 title={"Projects"} 
                 icon={<BsFileCodeFill/>} 
-                page={<Introduce/>} 
+                page={<Project/>} 
                 pid={2} 
                 windowHandler={setWindowStack}
               />
               <Icon 
-                title={"Content"} 
+                title={"Contact"} 
                 icon={<BsFillTelephoneFill/>} 
-                page={<Introduce/>} 
+                page={<Contact/>} 
                 pid={3} 
                 windowHandler={setWindowStack}
               />

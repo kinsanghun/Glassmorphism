@@ -20,25 +20,10 @@ export const Icon = (props:{title:string, icon:ReactNode, page:ReactNode, pid:nu
         });
     }
 
-    const closeHandler = () => {
-        setView(false);
-        props.windowHandler((prev:windowType[]) => {
-            const windows = [...prev];
-            for(let i = 0; i < windows.length; i++ ) {
-                if(windows[i].pid === props.pid) {
-                    windows.splice(i, 1);
-                    break;
-                }
-            }
-            return windows;
-        });
-    }
+    
 
     const window:ReactNode = (
-        <div className="container" onClick={()=>{onClickHandler()}}>
-            <div className="header">
-                <span className="close" onClick={()=>{closeHandler()}}><BsXLg/></span>
-            </div>
+        <div className="container">
             <div>
                 {props.page}
             </div>
@@ -50,7 +35,7 @@ export const Icon = (props:{title:string, icon:ReactNode, page:ReactNode, pid:nu
             props.windowHandler((prev:windowType[]) => {
             const windows:windowType[] = [...prev];
 
-            windows.push({pid:props.pid, window:<Window pid={props.pid} children={window} windowOnClickHandler={onClickHandler}/>});
+            windows.push({pid:props.pid, window:<Window pid={props.pid} children={window} windowOnClickHandler={onClickHandler} setView={setView} windowHandler={props.windowHandler}/>});
             return windows;
         })
         setView(prev => true);

@@ -1,0 +1,60 @@
+.introduce {
+    position: relative;
+    padding : 15px 50px;
+    margin : 0 auto;
+    width: 600px;
+    @media (max-width : 650px) {
+        width : 100%;
+    }
+    .profile {
+        display: flex;
+        align-items: center;
+
+        .image {
+            width : 120px;
+            height : 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width : 100%;
+                height : 100%;
+                object-fit: cover;
+            }
+        }
+        
+        .content {
+            margin-left : 1rem;
+            ul {
+                li {
+                    color : rgb(227, 227, 227);
+                    &:first-child {
+                        font-size : 18px;
+                        font-weight : 600;
+                        color : white;
+                    }
+                }
+            }
+        }
+    }
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap : 12px;
+    }
+}
+.career {
+    padding : 15px 50px;
+    width: 600px;
+
+    @media (max-width : 650px) {
+        width : 100%;
+    }
+
+}
+.project {
+    position: relative;
+    padding : 15px 50px;
+    width : 80vw;
+    height : 100vh;
+    @media (max-width : 650px) { width : 100%; }
+}
